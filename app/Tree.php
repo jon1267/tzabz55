@@ -2,6 +2,13 @@
 
 namespace App;
 
+/**
+ * Class Tree строит html дерево из таблицы должностей, с полями
+ * id, parent_id, position. Использование: $obj = new Tree();
+ * $partTree = $obj->showTree($obj->getTree(),$parentId);
+ * в $partTree будет строка с html кодом дерева. У детей margin left
+ * отступ от родителей. Строка (массив строк) передается во вьюху...
+ */
 class Tree
 {
     protected $data;
@@ -11,9 +18,9 @@ class Tree
     public function __construct()
     {
         //$this->data = Position::orderBy('parent_id')->get()->toArray();
-        $this->data = Position::orderBy('id')->get()->toArray();
-        //ps. тут был тонкий глюк, к-рый тяжело ищется бо все работает, но не так...(фио где не надо)
+        //тут был тонкий глюк, к-рый тяжело ищется бо все работает, но не так...(фио где не надо)
         //при дальнейш. добавлен. в справ. должностей, это ваще не ясно будет ли работать...:(
+        $this->data = Position::orderBy('id')->get()->toArray();
 
         //делаем функционал: если клик по начальнику, то сразу отобр. фио...
         //в $bosses будут должности, со связ. сотрудником, где связ. сотрудник только один,
@@ -27,10 +34,6 @@ class Tree
                 $this->data[$i] = array_add($this->data[$i], 'last_name', $bosses[$i]['staff'][0]['last_name']);
                 $this->data[$i] = array_add($this->data[$i], 'salary', $bosses[$i]['staff'][0]['salary']);
                 $this->data[$i] = array_add($this->data[$i], 'employed_at', date_format(date_create($bosses[$i]['staff'][0]['employed_at']), 'd.m.Y'));
-                // др. подход к полю ['position'] добавляем ФИО, и в массиве data один набор полей
-                //$this->data[$i]['position'] .= ' <br> '.$bosses[$i]['staff'][0]['last_name'].
-                //    ' '.$bosses[$i]['staff'][0]['first_name'].
-                //    ' '.$bosses[$i]['staff'][0]['name'];
             }
         }
         //dd($this->getData(), $this->getTree() );
