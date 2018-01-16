@@ -41,7 +41,6 @@ function showTree(i) {
 function ajaxLoad(id) {
     //console.log('OK! Script was here...');
 
-    content = typeof content !== 'undefined' ? content : 'content';
     //$('.loading').show();
 
     /* дб где-то в шаблонах (index.blade?)
@@ -83,6 +82,8 @@ function removeTable() {
  * Попытка аякс пагинации по образцу  https://laraget.com/blog/how-to-create-an-ajax-pagination-using-laravel
  * и код оттуда...неясно что делать с url , тк урл url: '/tree_table/' + id ,
  * дался с кровью ...!!!
+ *
+ * другой вариант см https://gist.github.com/tobysteward/6163902
  **/
 /**
 $(function() {

@@ -60,7 +60,7 @@
                             {{--<li><a href="{{route('index.tree', ['id'=>1])}}"> <i class="fa fa-sitemap" aria-hidden="true"></i> Tree Simple</a></li>--}}
                             <li><a href="{{route('tree.full', ['id'=>1, 'pid'=>0])}}"> <i class="fa fa-sitemap" aria-hidden="true"></i> Tree Session </a></li>
                             <li><a href="{{route('tree.class', ['id'=>1])}}"> <i class="fa fa-cubes" aria-hidden="true"></i> Tree Class</a></li>
-                            {{--<li><a href="{{route('class.table', ['id'=>27])}}"> <i class="fa fa-bell" aria-hidden="true"></i> Tree ajax</a></li> нада для отладки аякса--}}
+                            {{--<li><a href="{{route('class.table', ['id'=>27])}}"> <i class="fa fa-bell" aria-hidden="true"></i> Tree ajax</a></li> для отладки ajax --}}
 
                             <li role="separator" class="divider"></li>
 

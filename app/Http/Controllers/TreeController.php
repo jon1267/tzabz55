@@ -287,8 +287,7 @@ class TreeController extends Controller
      **/
     public function showTable($pid)
     {
-        $data = Staff::with('position')
-            ->where('position_id', $pid)->get()->toArray();//можно и без ->toArray()
+        $data = Staff::with('position')->where('position_id', $pid)->get()->toArray();//можно и без ->toArray()
         /**
          * подготовка к аякс пагинации. Если так просто [paginate()+links()], то работает
          * токо до 1 стр. пагинации. Потом, (на 2 стр) гет запрос обновл. стр и выводит
